@@ -141,7 +141,7 @@ int main()
   {
     boost::thread t0( (G()));
     BOOST_TEST(t0.joinable());
-    t0.try_join_until(boost::chrono::steady_clock::now()+boost::chrono::milliseconds(250));
+    t0.try_join_until(boost::chrono::steady_clock::now()+boost::chrono::milliseconds(400));
     try
     {
       t0.join();
