@@ -159,7 +159,7 @@ struct check_timer {
   }
   ~check_timer() {
     Clock::time_point now = Clock::now();
-    BOOST_TEST(now - start < delay);
+    BOOST_TEST_LT((now - start).count(), delay.count());
     std::cout << __FILE__ << "[" << __LINE__ << "] " << (now - start).count() << std::endl;
   }
 
