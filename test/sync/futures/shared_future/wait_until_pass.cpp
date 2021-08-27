@@ -139,7 +139,7 @@ int main()
 #else
       func5(boost::move(p));
 #endif
-      BOOST_TEST_EQ(f.wait_until(Clock::now() + ms(750)) , boost::future_status::ready);
+      BOOST_TEST_EQ(f.wait_until(Clock::now() + ms(1250)) , boost::future_status::ready);
       BOOST_TEST(f.valid());
       Clock::time_point t0 = Clock::now();
       f.wait();
