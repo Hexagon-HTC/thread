@@ -57,9 +57,7 @@ namespace boost
 #else
           std::size_t page_size = ::sysconf( _SC_PAGESIZE);
 #endif
-#if PTHREAD_STACK_MIN > 0
-          if (size<PTHREAD_STACK_MIN) size=PTHREAD_STACK_MIN;
-#endif
+          if (PTHREAD_STACK_MIN>0 && size<PTHREAD_STACK_MIN) size=PTHREAD_STACK_MIN;
           size = ((size+page_size-1)/page_size)*page_size;
           int res = pthread_attr_setstacksize(&val_, size);
           BOOST_VERIFY(!res && "pthread_attr_setstacksize failed");
